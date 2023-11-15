@@ -6,7 +6,6 @@ Future<List<ParkingRecord>> getParkingRecords() async {
   final response = await http.get(
       Uri.parse('https://parking-spot-238adfbb7467.herokuapp.com/parking-spot/list'));
 
-
   if (response.statusCode == 200) {
     List<dynamic> data = json.decode(response.body);
     return data.map((record) => ParkingRecord.fromJson(record)).toList();
